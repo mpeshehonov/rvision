@@ -9,252 +9,254 @@ import axios from 'axios';
 
 am4core.useTheme(am4themes_animated);
 
-const testChartData = [{
-  name: 'Flora',
-  children: [{
-    name: 'Black Tea', value: 1
-  }, {
-    name: 'Floral',
-    children: [{
-      name: 'Chamomile', value: 1
+const testChartData = [
+  {
+    "name": "grim spider",
+    "children": [{
+      "name": "groundbait", "value": 1
     }, {
-      name: 'Rose', value: 1
-    }, {
-      name: 'Jasmine', value: 1
-    }]
-  }]
-}, {
-  name: 'Fruity',
-  children: [{
-    name: 'Berry',
-    children: [{
-      name: 'Blackberry', value: 1
-    }, {
-      name: 'Raspberry', value: 1
-    }, {
-      name: 'Blueberry', value: 1
-    }, {
-      name: 'Strawberry', value: 1
+      "name": "hacking team",
+      "children": [{
+        "name": "higaisa", "value": 1
+      }, {
+        "name": "ice fog", "value": 1
+      }, {
+        "name": "iron group", "value": 1
+      }]
     }]
   }, {
-    name: 'Dried Fruit',
-    children: [{
-      name: 'Raisin', value: 1
+    "name": "anunak",
+    "children": [{
+      "name": "apt41",
+      "children": [{
+        "name": "leviathan", "value": 1
+      }, {
+        "name": "oilrig", "value": 1
+      }, {
+        "name": "apt32", "value": 1
+      }, {
+        "name": "stone panda", "value": 1
+      }]
     }, {
-      name: 'Prune', value: 1
+      "name": "cleaver",
+      "children": [{
+        "name": "apt33", "value": 1
+      }, {
+        "name": "magnallium", "value": 1
+      }]
+    }, {
+      "name": "apt34",
+      "children": [{
+        "name": "apt 30", "value": 1
+      }, {
+        "name": "chrysene", "value": 1
+      }, {
+        "name": "operation c-major", "value": 1
+      }, {
+        "name": "ta505", "value": 1
+      }, {
+        "name": "equation group", "value": 1
+      }, {
+        "name": "mirage", "value": 1
+      }, {
+        "name": "apt37", "value": 1
+      }, {
+        "name": "molerats", "value": 1
+      }]
+    }, {
+      "name": "dropping elephant",
+      "children": [{
+        "name": "fin6", "value": 1
+      }, {
+        "name": "pirate panda", "value": 1
+      }, {
+        "name": "rocket kitten", "value": 1
+      }, {
+        "name": "telebots", "value": 1
+      }]
     }]
   }, {
-    name: 'Other Fruit',
-    children: [{
-      name: 'Coconut', value: 1
+    "name": "tick",
+    "children": [{
+      "name": "ups",
+      "children": [{
+        "name": "cobalt", "value": 1
+      }, {
+        "name": "darkhotel", "value": 1
+      }, {
+        "name": "dragonok", "value": 1
+      }, {
+        "name": "electrum", "value": 1
+      }, {
+        "name": "emissary panda", "value": 1
+      }, {
+        "name": "hellsing", "value": 1
+      }]
     }, {
-      name: 'Cherry', value: 1
-    }, {
-      name: 'Pomegranate', value: 1
-    }, {
-      name: 'Pineapple', value: 1
-    }, {
-      name: 'Grape', value: 1
-    }, {
-      name: 'Apple', value: 1
-    }, {
-      name: 'Peach', value: 1
-    }, {
-      name: 'Pear', value: 1
+      "name": "luckymouse",
+      "children": [{
+        "name": "the gorgon group", "value": 1
+      }, {
+        "name": "threat group-3390", "value": 1
+      }, {
+        "name": "aurora panda", "value": 1
+      }, {
+        "name": "energetic bear", "value": 1
+      }]
     }]
   }, {
-    name: 'Citrus Fruit',
-    children: [{
-      name: 'Grapefruit', value: 1
+    "name": "sandworm",
+    "children": [{
+      "name": "ta428", "value": 1
     }, {
-      name: 'Orange', value: 1
+      "name": "blacktech", "value": 1
     }, {
-      name: 'Lemon', value: 1
+      "name": "henbox",
+      "children": [{
+        "name": "hurricane panda", "value": 1
+      }, {
+        "name": "kimsuky", "value": 1
+      }, {
+        "name": "muddywater", "value": 1
+      }, {
+        "name": "samurai panda", "value": 1
+      }, {
+        "name": "tonto team", "value": 1
+      }, {
+        "name": "apt31", "value": 1
+      }, {
+        "name": "apt39", "value": 1
+      }]
     }, {
-      name: 'Lime', value: 1
-    }]
-  }]
-}, {
-  name: 'Sour/Fermented',
-  children: [{
-    name: 'Sour',
-    children: [{
-      name: 'Sour Aromatics', value: 1
-    }, {
-      name: 'Acetic Acid', value: 1
-    }, {
-      name: 'Butyric Acid', value: 1
-    }, {
-      name: 'Isovaleric Acid', value: 1
-    }, {
-      name: 'Citric Acid', value: 1
-    }, {
-      name: 'Malic Acid', value: 1
+      "name": "calypso group", "value": 1
     }]
   }, {
-    name: 'Alcohol/Fremented',
-    children: [{
-      name: 'Winey', value: 1
+    "name": "gallium",
+    "children": [{
+      "name": "ixeshe",
+      "children": [{
+        "name": "temper panda", "value": 1
+      }, {
+        "name": "thrip", "value": 1
+      }, {
+        "name": "unc1878", "value": 1
+      }, {
+        "name": "venom spider", "value": 1
+      }, {
+        "name": "wizard spider", "value": 1
+      }, {
+        "name": "aridviper", "value": 1
+      }, {
+        "name": "charming kitten", "value": 1
+      }, {
+        "name": "darkhydrus", "value": 1
+      }, {
+        "name": "gamaredon group", "value": 1
+      }, {
+        "name": "platinum", "value": 1
+      }]
     }, {
-      name: 'Whiskey', value: 1
-    }, {
-      name: 'Fremented', value: 1
-    }, {
-      name: 'Overripe', value: 1
-    }]
-  }]
-}, {
-  name: 'Green/Vegetative',
-  children: [{
-    name: 'Olive Oil', value: 1
-  }, {
-    name: 'Raw', value: 1
-  }, {
-    name: 'Green/Vegetative',
-    children: [{
-      name: 'Under-ripe', value: 1
-    }, {
-      name: 'Peapod', value: 1
-    }, {
-      name: 'Fresh', value: 1
-    }, {
-      name: 'Dark Green', value: 1
-    }, {
-      name: 'Vegetative', value: 1
-    }, {
-      name: 'Hay-like', value: 1
-    }, {
-      name: 'Herb-like', value: 1
-    }]
-  }, {
-    name: 'Beany', value: 1
-  }]
-}, {
-  name: 'Other',
-  children: [{
-    name: 'Papery/Musty',
-    children: [{
-      name: 'Stale', value: 1
-    }, {
-      name: 'Cardboard', value: 1
-    }, {
-      name: 'Papery', value: 1
-    }, {
-      name: 'Woody', value: 1
-    }, {
-      name: 'Moldy/Damp', value: 1
-    }, {
-      name: 'Musty/Dusty', value: 1
-    }, {
-      name: 'Musty/Earthy', value: 1
-    }, {
-      name: 'Animalic', value: 1
-    }, {
-      name: 'Meaty Brothy', value: 1
-    }, {
-      name: 'Phenolic', value: 1
+      "name": "rancor",
+      "children": [{
+        "name": "snowglobe", "value": 1
+      }, {
+        "name": "sweed", "value": 1
+      }, {
+        "name": "ta413", "value": 1
+      }, {
+        "name": "winnti umbrella", "value": 1
+      }, {
+        "name": "apt-c-35", "value": 1
+      }, {
+        "name": "apt-c-36", "value": 1
+      }]
     }]
   }, {
-    name: 'Chemical',
-    children: [{
-      name: 'Bitter', value: 1
+    "name": "apt35",
+    "children": [{
+      "name": "apt 16", "value": 1
     }, {
-      name: 'Salty', value: 1
+      "name": "apt 22", "value": 1
     }, {
-      name: 'Medicinal', value: 1
+      "name": "apt 26",
+      "children": [{
+        "name": "dark caracal", "value": 1
+      }, {
+        "name": "dnspionage", "value": 1
+      }, {
+        "name": "greenbug", "value": 1
+      }, {
+        "name": "greyenergy", "value": 1
+      }]
     }, {
-      name: 'Petroleum', value: 1
-    }, {
-      name: 'Skunky', value: 1
-    }, {
-      name: 'Rubber', value: 1
-    }]
-  }]
-}, {
-  name: 'Roasted',
-  children: [{
-    name: 'Pipe Tobacco', value: 1
-  }, {
-    name: 'Tobacco', value: 1
-  }, {
-    name: 'Burnt',
-    children: [{
-      name: 'Acrid', value: 1
-    }, {
-      name: 'Ashy', value: 1
-    }, {
-      name: 'Smoky', value: 1
-    }, {
-      name: 'Brown, Roast', value: 1
+      "name": "inception framework",
+      "children": [{
+        "name": "indrik spider", "value": 1
+      }, {
+        "name": "longhorn", "value": 1
+      }]
     }]
   }, {
-    name: 'Cereal',
-    children: [{
-      name: 'Grain', value: 1
+    "name": "lunar spider",
+    "children": [{
+      "name": "mummy spider", "value": 1
     }, {
-      name: 'Malt', value: 1
-    }]
-  }]
-}, {
-  name: 'Spices',
-  children: [{
-    name: 'Pungent', value: 1
-  }, {
-    name: 'Pepper', value: 1
-  }, {
-    name: 'Brown Spice',
-    children: [{
-      name: 'Anise', value: 1
+      "name": "nettraveler", "value": 1
     }, {
-      name: 'Nutmeg', value: 1
-    }, {
-      name: 'Cinnamon', value: 1
-    }, {
-      name: 'Clove', value: 1
-    }]
-  }]
-}, {
-  name: 'Nutty/Cocoa',
-  children: [{
-    name: 'Nutty',
-    children: [{
-      name: 'Peanuts', value: 1
-    }, {
-      name: 'Hazelnut', value: 1
-    }, {
-      name: 'Almond', value: 1
+      "name": "nightshade panda",
+      "children": [{
+        "name": "pinchy spider", "value": 1
+      }, {
+        "name": "pitty panda", "value": 1
+      }, {
+        "name": "poison carp", "value": 1
+      }, {
+        "name": "rocke", "value": 1
+      }]
     }]
   }, {
-    name: 'Cocoa',
-    children: [{
-      name: 'Chocolate', value: 1
+    "name": "silence group",
+    "children": [{
+      "name": "sowbug",
+      "children": [{
+        "name": "tortoiseshell", "value": 1
+      }, {
+        "name": "violin panda", "value": 1
+      }, {
+        "name": "wekby", "value": 1
+      }]
     }, {
-      name: 'Dark Chocolate', value: 1
-    }]
-  }]
-}, {
-  name: 'Sweet',
-  children: [{
-    name: 'Brown Sugar',
-    children: [{
-      name: 'Molasses', value: 1
-    }, {
-      name: 'Maple Syrup', value: 1
-    }, {
-      name: 'Caramelized', value: 1
-    }, {
-      name: 'Honey', value: 1
+      "name": "apt-c-12",
+      "children": [{
+        "name": "apt-c-27", "value": 1
+      }, {
+        "name": "bahamut", "value": 1
+      }]
     }]
   }, {
-    name: 'Vanilla', value: 1
-  }, {
-    name: 'Vanillin', value: 1
-  }, {
-    name: 'Overall Sweet', value: 1
-  }, {
-    name: 'Sweet Aromatics', value: 1
-  }]
-}];
+    "name": "boss spider",
+    "children": [{
+      "name": "buhtrap",
+      "children": [{
+        "name": "codoso", "value": 1
+      }, {
+        "name": "copykittens", "value": 1
+      }, {
+        "name": "danti", "value": 1
+      }, {
+        "name": "domestic kitten", "value": 1
+      }]
+    }, {
+      "name": "dust storm", "value": 1
+    }, {
+      "name": "el machete", "value": 1
+    }, {
+      "name": "evilnum", "value": 1
+    }, {
+      "name": "fin8", "value": 1
+    }]
+  }
+];
 
 const TreeMapChart = () => {
   const [chartData, setChartData] = useState(testChartData);

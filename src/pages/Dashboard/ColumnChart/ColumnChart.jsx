@@ -1,7 +1,7 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react';
 import './styles.scss';
 import * as am4core from '@amcharts/amcharts4/core';
-import * as am4plugins_wordCloud from '@amcharts/amcharts4/plugins/wordCloud';
+import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import am4langRu from '@amcharts/amcharts4/lang/ru_RU';
 import {Card} from 'antd';
@@ -346,7 +346,7 @@ const testChartData = [
   }
 ];
 
-const TagCloudChart = () => {
+const ColumnChart = () => {
   const [chartData, setChartData] = useState(testChartData);
 
   /*
@@ -356,29 +356,51 @@ const TagCloudChart = () => {
   */
 
   useLayoutEffect(() => {
-    const chart = am4core.create('tagCloudChart', am4plugins_wordCloud.WordCloud);
+    let chart = am4core.create('columnChart', am4charts.XYChart);
     chart.language.locale = am4langRu;
+    chart.scrollbarX = new am4core.Scrollbar();
     chart.data = chartData;
 
     let title = chart.titles.create();
-    title.text = '[bold font-size: 20]Облако тегов[/]';
+    title.text = '[bold font-size: 20]Теги в сравнении[/]';
     title.textAlign = 'middle';
 
-    let series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
-    series.dataFields.word = 'tag';
-    series.dataFields.value = 'count';
-    series.labels.template.tooltipText = '{word}';
+    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "tag";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 30;
+    categoryAxis.renderer.labels.template.horizontalCenter = "right";
+    categoryAxis.renderer.labels.template.verticalCenter = "middle";
+    categoryAxis.renderer.labels.template.rotation = 270;
+    categoryAxis.tooltip.disabled = true;
+    categoryAxis.renderer.minHeight = 110;
 
-    series.heatRules.push({
-      'target': series.labels.template,
-      'property': 'fill',
-      'min': am4core.color('#00c'),
-      'max': am4core.color('#c0c'),
-      'dataField': 'value'
+    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.renderer.minWidth = 50;
+
+    let series = chart.series.push(new am4charts.ColumnSeries());
+    series.sequencedInterpolation = true;
+    series.dataFields.valueY = "count";
+    series.dataFields.categoryX = "tag";
+    series.tooltipText = "{count}";
+    series.columns.template.strokeWidth = 0;
+
+    series.tooltip.pointerOrientation = "vertical";
+
+    series.columns.template.column.cornerRadiusTopLeft = 10;
+    series.columns.template.column.cornerRadiusTopRight = 10;
+    series.columns.template.column.fillOpacity = 0.8;
+
+    let hoverState = series.columns.template.column.states.create("hover");
+    hoverState.properties.cornerRadiusTopLeft = 0;
+    hoverState.properties.cornerRadiusTopRight = 0;
+    hoverState.properties.fillOpacity = 1;
+
+    series.columns.template.adapter.add("fill", function(fill, target) {
+      return chart.colors.getIndex(target.dataItem.index);
     });
 
-    let hoverState = series.labels.template.states.create('hover');
-    hoverState.properties.fill = am4core.color('#f00');
+    chart.cursor = new am4charts.XYCursor();
 
     return () => {
       chart.dispose();
@@ -387,10 +409,10 @@ const TagCloudChart = () => {
 
   return (
     <Card bordered={false}>
-      <div id="tagCloudChart" style={{width: '100%', height: '600px'}} />
+      <div id="columnChart" style={{width: '100%', height: '600px'}} />
     </Card>
   )
 }
 
-export default TagCloudChart
+export default ColumnChart
   

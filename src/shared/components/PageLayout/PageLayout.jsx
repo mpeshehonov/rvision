@@ -1,9 +1,10 @@
 import React from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 import {Button, Layout} from 'antd';
-import Header from '../Header';
-import './PageLayout.scss';
+import './styles.scss';
 import {ArrowLeftOutlined} from '@ant-design/icons';
+import Header from "../Header";
+import Sidebar from "../Sidebar";
 
 
 const PageLayout = ({children}) => {
@@ -13,8 +14,9 @@ const PageLayout = ({children}) => {
   return (
     <>
       <Layout className="layout">
-        <Header />
+        <Sidebar/>
         <Layout>
+          <Header/>
           <Layout.Content className="layout-content" style={{padding: '0 50px', marginTop: 64}}>
             <div className="site-layout-content">
               { location.pathname !== '/' &&
@@ -26,10 +28,10 @@ const PageLayout = ({children}) => {
               {children}
             </div>
           </Layout.Content>
+          <Layout.Footer style={{textAlign: 'center'}}>
+            Hack.Genesis_ONLINE_ x R-Vision x Stellar ©2021.
+          </Layout.Footer>
         </Layout>
-        <Layout.Footer style={{textAlign: 'center'}}>
-          Hack.Genesis_ONLINE_ x R-Vision x Stellar ©2021.
-        </Layout.Footer>
       </Layout>
     </>
   );

@@ -1,0 +1,18 @@
+.sidebar {
+  .logo, .logo a, .logo a:hover {
+    width: 100%;
+    padding: 25px;
+    color: #fff;
+  }
+  .ant-menu {
+    margin-bottom: 25px;
+  }
+  .menu-title {
+    padding: 25px;
+    color: #a9a9a9;
+  }
+
+  .ant-badge-count {
+    box-shadow: none;
+  }
+}
